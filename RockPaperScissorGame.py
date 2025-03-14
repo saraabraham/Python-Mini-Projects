@@ -6,7 +6,7 @@ class game(Enum):
     ROCK=1
     PAPER=2
     SCISSORS=3
-
+game_count = 1
 def rpsgame():
     print("\nRock Paper Scissors Game 🪨 🗞️ ✂️")
     playerChoice = input("\nEnter... \n1 for Rock  🪨 \n2 for Paper  🗞️ \n3 for Scissors ✂️ \n\n")
@@ -19,20 +19,28 @@ def rpsgame():
     computer=int(computerChoice)
 
     print("\nYou chose the weapon " + str(game(player)).replace("game.","").lower()+".")
-    print("Python chose the weapon " + str(game(computer)).replace("game.","").lower()+".")   
+    print("Python chose the weapon " + str(game(computer)).replace("game.","").lower()+".")  
 
-    if player == 1 and computer == 3:
-     print("\nYou Win! 👻")
+    def winner_decide(player,computer): 
 
-    elif player == 2 and computer == 1:
-     print("\nYou Win! 👻")
+        if player == 1 and computer == 3:
+            return "\nYou Win! 👻"
 
-    elif player == 3 and computer == 2:
-     print("\nYou Win! 👻")
-    elif player == computer :
-     print("\nIt\'s a Tie! 😥")
-    else:
-     print("\nPython wins!! 🐍")
+        elif player == 2 and computer == 1:
+            return "\nYou Win! 👻" 
+
+        elif player == 3 and computer == 2:
+            return "\nYou Win! 👻" 
+        elif player == computer :
+            return "\nIt\'s a Tie! 😥"
+        else:
+            return "\nPython wins!! 🐍"
+    
+    winner_text=winner_decide(player,computer)
+    print(winner_text)
+    global game_count 
+    game_count +=1
+
     
     print("\nPlay again?🤟")
           
@@ -45,6 +53,7 @@ def rpsgame():
            break
     
     if playagain.lower() == 'y':
+            print("This is game No:"+ str(game_count))
             return rpsgame()
     else:
             print("\nThankyou for playing!🤗")
