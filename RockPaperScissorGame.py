@@ -28,8 +28,8 @@ def rps():
         computerChoice = random.choice("123")
         computer=int(computerChoice)
 
-        print("\nYou chose the weapon " + str(game(player)).replace("game.","").lower()+".")
-        print("Python chose the weapon " + str(game(computer)).replace("game.","").lower()+".")  
+        print(f"\nYou chose the weapon {str(game(player)).replace("game.","").title()}.")
+        print(f"Python chose the weapon {str(game(computer)).replace("game.","").title()}.")  
 
         def winner_decide(player,computer): 
             nonlocal player_wins
@@ -54,8 +54,8 @@ def rps():
         
         winner_text=winner_decide(player,computer)
         print(winner_text)
-        print("\nPlayer wins:" + str(player_wins))
-        print("\nPython wins:" + str(python_wins))     
+        print(f"\nPlayer wins:{str(player_wins)}")
+        print(f"\nPython wins:{str(python_wins)}")     
         nonlocal game_count 
         game_count +=1
 
@@ -71,15 +71,17 @@ def rps():
              break
         
         if playagain.lower() == 'y':
-                print("\nThis is game No:"+ str(game_count))
+                print(f"\nThis is game No:{str(game_count)}")
                 return rpsgame()
         else:
                 print("\nThankyou for playing!🤗")
                 sys.exit("\nBye!!👋\n")
     return rpsgame
 
-play = rps()
-play()
+rock_paper_scissors = rps()
+
+if __name__== "__main__":
+    rock_paper_scissors()
      
     
 
