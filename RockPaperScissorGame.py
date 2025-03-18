@@ -76,8 +76,11 @@ def rps(name):
                 print(f"\nThis is game No:{str(game_count)}")
                 return rpsgame()
         else:
-                print(f"\nThank you for playing {name}!🤗")
-                sys.exit(f"\nBye {name}!!👋\n")
+                if __name__ == "__main__":
+                  sys.exit(f"Bye {name}! 👋")
+                else:
+                  return
+                
     return rpsgame
 
 
